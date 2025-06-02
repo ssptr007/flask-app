@@ -10,7 +10,7 @@ def hello():
 def hi():
     return "Hi World!"
 
-@app.route('/')
+@app.route('/greet')
 def greet():
     return "Welcome"
 
