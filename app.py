@@ -10,6 +10,10 @@ def hello():
 def hi():
     return "Hi World!"
 
+@app.route('/')
+def greet():
+    return "Welcome"
+
 
 
 if __name__ == "__main__":
