@@ -9,14 +9,12 @@ pipeline {
             steps {
                 sshagent(['ec2-key-jenkins']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@3.83.116.192 <<EOFAdd commentMore actions
+                        ssh -o StrictHostKeyChecking=no ubuntu@3.83.116.192 <<EOF
                             rm -rf flask-app || true
                             git clone https://github.com/ssptr007/flask-app.git flask-app
                             cd flask-app
-                            kill -9 $(pgrep python)
-                            python3 -m venv venv
-                            source venv/bin/activate
-                            nohup python3 app.py &
+                            pkill -f app.py
+                            nohup python3 app.py > app.log 2>&1 &
                         EOF
                     '''
                 }
