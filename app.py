@@ -30,6 +30,11 @@ def place():
 def falls():
     return "Welcome to Doodhsagar"
 
+@app.route('/guest')
+def Guest():
+    return "Welcome to Nithin sir"
+
+
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0.",debug=False)
