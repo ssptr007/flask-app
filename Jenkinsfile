@@ -13,8 +13,8 @@ pipeline {
                             rm -rf /home/ubuntu/flask-app || true
                             git clone https://github.com/ssptr007/flask-app.git flask-app
                             cd flask-app
-                            kill -9 $(pgrep python)
-                            nohup python3 app.py &
+                            /usr/bin/kill -9 $(pgrep python)
+                            /usr/bin/nohup python3 app.py &
                         EOF
                     '''
                 }
