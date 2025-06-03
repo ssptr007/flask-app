@@ -20,7 +20,7 @@ pipeline {
                             cd /home/ubuntu/flask-app
 
                             echo "Starting app..."
-                            nohup python3 app.py > app.log 2>&1 &
+                            setsid python3 app.py > app.log 2>&1 < /dev/null &
                         ENDSSH
                     '''
                 }
