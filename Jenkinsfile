@@ -14,7 +14,7 @@ pipeline {
                             git clone https://github.com/ssptr007/flask-app.git /home/ubuntu/flask-app
                             cd /home/ubuntu/flask-app
                             pkill -f app.py || true
-                            setsid python3 app.py > app.log 2>&1 < /dev/null &
+                            nohup python3 app.py &
                         ENDSSH
                     '''
                 }
