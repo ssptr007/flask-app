@@ -34,6 +34,10 @@ def falls():
 def Guest():
     return "Welcome to Nithin sir"
 
+@app.route('/cost')
+def cost():
+    return "Cost is 2999"
+
 
 
 if __name__ == "__main__":
