@@ -19,8 +19,12 @@ def wish():
     return "Welcome Sandeep"
 
 @app.route('/trip')
-def wish():
+def trip():
     return "Welcome to Karma Experiences"
+
+@app.route('/place')
+def place():
+    return "Welcome to Goa"
 
 
 
