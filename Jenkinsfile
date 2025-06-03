@@ -8,7 +8,7 @@ pipeline {
             }
             steps {
                 sshagent(credentials: ['ec2-key-jenkins']) {
-                    sh '''
+                    sh '''#!/bin/bash
                         ssh -o StrictHostKeyChecking=no ubuntu@3.83.116.192 << 'EOF'
                             set -e
                             rm -rf /home/ubuntu/flask-app || true
