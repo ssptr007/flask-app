@@ -14,8 +14,6 @@ pipeline {
                             git clone https://github.com/ssptr007/flask-app.git flask-app
                             cd flask-app
                             kill -9 $(pgrep python)
-                            python3 -m venv venv
-                            source venv/bin/activate
                             nohup python3 app.py &
                         EOF
                     '''
