@@ -10,17 +10,11 @@ pipeline {
                 sshagent(['ec2-key-jenkins']) {
                     sh '''
                         ssh -o StrictHostKeyChecking=no ubuntu@3.83.116.192 << 'ENDSSH'
-                            echo "Cleaning up old app..."
-                            pkill -f app.py || true
                             rm -rf /home/ubuntu/flask-app || true
-
-                            echo "Cloning latest code..."
                             git clone https://github.com/ssptr007/flask-app.git /home/ubuntu/flask-app
-
                             cd /home/ubuntu/flask-app
-
-                            echo "Starting app..."
-                            setsid python3 app.py > app.log 2>&1 < /dev/null &
+                            pkill -f app.py || true
+                            nohup python3 app.py &
                         ENDSSH
                     '''
                 }
