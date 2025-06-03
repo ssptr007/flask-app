@@ -14,6 +14,10 @@ def hi():
 def greet():
     return "Welcome Omkar"
 
+@app.route('/wish')
+def wish():
+    return "Welcome Sandeep"
+
 
 
 if __name__ == "__main__":
