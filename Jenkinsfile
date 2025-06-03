@@ -4,17 +4,18 @@ pipeline {
     stages {
         stage('Deploy') {
             when {
-                expression { currentBuild.result == null || currentBuild.result == 'SUCCESS' }
+                expression { currentBuild.result == null || currentBuild.result.toString() == 'SUCCESS' }
             }
             steps {
-                sshagent(['ec2-key-jenkins']) {
+                sshagent(credentials: ['ec2-key-jenkins']) {
                     sh '''
-                        ssh -o StrictHostKeyChecking=no ubuntu@3.83.116.192 <<EOF
+                        ssh -o StrictHostKeyChecking=no ubuntu@3.83.116.192 << 'EOF'
+                            set -e
                             rm -rf /home/ubuntu/flask-app || true
                             git clone https://github.com/ssptr007/flask-app.git flask-app
                             cd flask-app
-                            /usr/bin/kill -9 $(pgrep python)
-                            /usr/bin/nohup python3 app.py &
+                            pkill -f app.py || true
+                            nohup python3 app.py > output.log 2>&1 &
                         EOF
                     '''
                 }
