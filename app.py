@@ -18,6 +18,10 @@ def greet():
 def wish():
     return "Welcome Sandeep"
 
+@app.route('/trip')
+def wish():
+    return "Welcome to Karma Experiences"
+
 
 
 if __name__ == "__main__":
