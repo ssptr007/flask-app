@@ -26,6 +26,9 @@ def trip():
 def place():
     return "Welcome to Goa"
 
+@app.route('/falls')
+def falls():
+    return "Welcome to Doodhsagar"
 
 
 if __name__ == "__main__":
