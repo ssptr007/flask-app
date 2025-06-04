@@ -11,10 +11,6 @@ def hi():
     return "Hi World!"
 
 
-@app.route('/greet')
-def greet():
-    return "Hi Good morning have a nice day!"
-
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0.",debug=False)
