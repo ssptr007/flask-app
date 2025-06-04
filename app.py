@@ -15,6 +15,11 @@ def hi():
 def greet():
     return "Hi Good morning have a nice day!"
 
+@app.route('/varada')
+def Varada():
+    return "Varada dummy"
+
+
 
 
 
