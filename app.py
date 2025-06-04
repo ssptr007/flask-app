@@ -19,6 +19,10 @@ def greet():
 def Varada():
     return "Varada dummy"
 
+@app.route('/sandeep')
+def Sandeep():
+    return "Sandeep Slim"
+
 
 
 
